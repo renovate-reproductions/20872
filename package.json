@@ -21,17 +21,6 @@
     "url": "https://github.com/vidavidorra/.github/issues"
   },
   "homepage": "https://github.com/vidavidorra/.github#readme",
-  "devDependencies": {
-    "@commitlint/cli": "17.0.3",
-    "@semantic-release/changelog": "6.0.1",
-    "@semantic-release/exec": "6.0.3",
-    "@semantic-release/git": "10.0.1",
-    "@vidavidorra/commitlint-config": "4.0.10",
-    "husky": "8.0.1",
-    "lint-staged": "13.2.0",
-    "prettier": "2.8.4",
-    "semantic-release": "20.1.1"
-  },
   "commitlint": {
     "extends": [
       "@vidavidorra"
