@@ -1,0 +1,38 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Default preset for use with vidavidorra's repos",
+  "extends": [
+    "config:base",
+    ":automergeBranch",
+    ":dependencyDashboard",
+    ":maintainLockFilesWeekly",
+    ":prNotPending",
+    ":rebaseStalePrs",
+    ":semanticCommits",
+    ":semanticCommitScope(deps)",
+    "docker:enableMajor",
+    "docker:pinDigests",
+    "group:linters",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "packageRules": [
+    {
+      "description": "Auto-merge non-major updates",
+      "matchUpdateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
+      "automerge": true
+    },
+    {
+      "description": "Group prettier packages",
+      "matchPackageNames": ["prettier"],
+      "matchPackagePatterns": ["^@prettier\\/", "^prettier-plugin-"],
+      "groupName": "prettier packages"
+    },
+    {
+      "description": "Update vidavidorra's packages without waiting for stability",
+      "matchPackagePatterns": ["^@vidavidorra\\/"],
+      "matchPackageNames": ["commitlint-plugin-function-rules"],
+      "stabilityDays": 0
+    }
+  ],
+  "stabilityDays": 3
+}
