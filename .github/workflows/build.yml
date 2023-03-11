@@ -6,4 +6,12 @@ on:
   pull_request:
 jobs:
   lint:
+    strategy:
+      fail-fast: false
+      matrix:
+        nodeVersion: [18, 19]
     uses: vidavidorra/.github/.github/workflows/node-lint.yml@v1.2.3
+    with:
+      nodeVersion: ${{ matrix.nodeVersion }}
+  run:
+    uses: iterative/link-check/.github/workflows/link-check-deployment-status.yml@v0.13.0
